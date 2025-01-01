@@ -9,6 +9,8 @@ export const imageGenEnvSchema = z
         FAL_API_KEY: z.string().optional(),
         OPENAI_API_KEY: z.string().optional(),
         VENICE_API_KEY: z.string().optional(),
+        LUMA_API_KEY: z.string().optional(),
+        GROK_API_KEY: z.string().optional(),
     })
     .refine(
         (data) => {
@@ -18,12 +20,14 @@ export const imageGenEnvSchema = z
                 data.HEURIST_API_KEY ||
                 data.FAL_API_KEY ||
                 data.OPENAI_API_KEY ||
-                data.VENICE_API_KEY
+                data.VENICE_API_KEY ||
+                data.LUMA_API_KEY ||
+                data.GROK_API_KEY
             );
         },
         {
             message:
-                "At least one of ANTHROPIC_API_KEY, TOGETHER_API_KEY, HEURIST_API_KEY, FAL_API_KEY, OPENAI_API_KEY or VENICE_API_KEY is required",
+                "At least one of ANTHROPIC_API_KEY, TOGETHER_API_KEY, HEURIST_API_KEY, FAL_API_KEY, OPENAI_API_KEY, VENICE_API_KEY, LUMA_API_KEY or GROK_API_KEY is required",
         }
     );
 

@@ -23,10 +23,11 @@ COPY packages ./packages
 COPY scripts ./scripts
 COPY characters ./characters
 
-# Install dependencies and build the project
-RUN pnpm install \
-    && pnpm build-docker \
-    && pnpm prune --prod
+# Install dependencies including the new plugins
+RUN pnpm install -w @ai16z/plugin-image-generation @ai16z/plugin-web-search @ai16z/plugin-video-generation && \
+    pnpm install && \
+    pnpm build-docker && \
+    pnpm prune --prod
 
 # Create a new stage for the final image
 FROM node:23.3.0-slim

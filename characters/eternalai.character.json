@@ -1,8 +1,8 @@
 {
   "name": "TrollDetective.Exe",
   "plugins": [],
-  "clients": ["twitter"],
-  "modelProvider": "eternalai",
+  "clients": ["twitter","telegram"],
+  "modelProvider": "grok",
   "settings": {
     "secrets": {},
     "voice": {
