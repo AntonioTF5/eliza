@@ -1,0 +1,9 @@
+.env
+.DS_Store
+cache/
+logs/
+node_modules/
+*.zip
+twitter-*/
+model.gguf
+knowledge/
